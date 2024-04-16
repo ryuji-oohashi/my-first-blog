@@ -9,8 +9,24 @@
         {% endif %}
         {% if user.is_authenticated %}
             <a class="btn btn-default" href="{% url 'post_edit' pk=post.pk %}"><span class="glyphicon glyphicon-pencil"></span></a>
+            <a class="btn btn-default" href="{% url 'post_remove' pk=post.pk %}"><span class="glyphicon glyphicon-remove"></span></a>
         {% endif %}
-        <h2>{{ post.title }}</h2>
-        <p>{{ post.text|linebreaksbr }}</p>
+        <div>
+            <table class="detail">
+                <tr class="detail"><td>取引先名：</td><td>{{ post.customer_name }}</td></tr>
+                <tr class="detail"><td>案件名：</td><td>{{ post.project_title }}</td></tr>
+                <tr class="detail"><td>契約、勤務形態：</td><td>{{ post.contract }}</td></tr>
+                <tr class="detail"><td valign="top">概要：</td><td style="white-space:pre-wrap; word-wrap:break-word;" >{{ post.overview }}</td></tr>
+                <tr class="detail"><td>期間：</td><td>{{ post.period }}</td></tr>
+                <tr class="detail"><td>現行工程：</td><td>{{ post.current_process }}</td></tr>
+                <tr class="detail"><td>状況ステータス：</td><td>{{ post.status_status }}</td></tr>
+                <tr class="detail"><td>状況詳細：</td><td style="white-space:pre-wrap; word-wrap:break-word;" >{{ post.situation_details }}</td></tr>
+                <tr class="detail"><td>責任者、PM、リーダー：</td><td>{{ post.person }}</td></tr>
+                <tr class="detail"><td>問い合わせ先：</td><td>{{ post.contact_information }}</td></tr>
+                <tr class="detail"><td>受注額、単価：</td><td>{{ post.unit_price }}</td></tr>
+                <tr class="detail"><td>出張の有無：</td><td>{{ post.business_trip }}</td></tr>
+                <tr class="detail"><td>一言アピール：</td><td>{{ post.one_word_appeal }}</td></tr>  
+            </table>    
+        </div> 
     </div>
 {% endblock %}
